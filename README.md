@@ -1,70 +1,153 @@
-# Welcome to your Lovable project
+# Monastery360 - Sikkim's Digital Heritage Platform
 
-## Project info
+A comprehensive digital platform showcasing the sacred monasteries of Sikkim through immersive virtual tours, digital archives, and cultural experiences.
 
-**URL**: https://lovable.dev/projects/917ead39-359e-41da-96c5-ea5e4f2b59f1
+## 🏛️ About Monastery360
 
-## How can I edit this code?
+Monastery360 is dedicated to preserving and sharing the rich Buddhist heritage of Sikkim through cutting-edge technology. Our platform offers:
 
-There are several ways of editing your application.
+- **360° Virtual Tours** of 200+ monasteries
+- **Digital Archives** with rare manuscripts and artifacts
+- **Cultural Calendar** of festivals and spiritual events
+- **Interactive Heritage Map** with geo-tagged locations
+- **Educational Resources** about Buddhist traditions
 
-**Use Lovable**
+## 🚀 Getting Started
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/917ead39-359e-41da-96c5-ea5e4f2b59f1) and start prompting.
+### Prerequisites
 
-Changes made via Lovable will be committed automatically to this repo.
+- Node.js (v18 or higher)
+- npm or yarn package manager
 
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+### Installation
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+# Clone the repository
+git clone https://github.com/Sahil390/sikkim-monasteries-360.git
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# Navigate to the project directory
+cd sikkim-monasteries-360
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Install dependencies
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start the development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+### Build for Production
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```sh
+# Build the application
+npm run build
 
-**Use GitHub Codespaces**
+# Preview the production build
+npm run preview
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 🛠️ Tech Stack
 
-## What technologies are used for this project?
+- **Frontend**: React 18 + TypeScript
+- **Styling**: Tailwind CSS + shadcn/ui components
+- **Build Tool**: Vite
+- **Routing**: React Router DOM
+- **State Management**: TanStack Query
+- **Icons**: Lucide React
+- **Calendar**: React Day Picker
 
-This project is built with:
+## 📁 Project Structure
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+```
+src/
+├── components/          # Reusable UI components
+│   ├── ui/             # shadcn/ui components
+│   ├── hero-section.tsx
+│   └── monastery-grid.tsx
+├── pages/              # Page components
+│   ├── Index.tsx       # Home page
+│   ├── Monasteries.tsx # Monasteries listing
+│   ├── Calendar.tsx    # Events calendar
+│   └── Archives.tsx    # Digital archives
+├── hooks/              # Custom React hooks
+├── lib/                # Utility functions
+└── assets/             # Static assets
+```
 
-## How can I deploy this project?
+## 🎨 Design System
 
-Simply open [Lovable](https://lovable.dev/projects/917ead39-359e-41da-96c5-ea5e4f2b59f1) and click on Share -> Publish.
+The project uses a custom design system inspired by Buddhist heritage and Himalayan landscapes:
 
-## Can I connect a custom domain to my Lovable project?
+- **Primary Colors**: Saffron/monastery orange
+- **Secondary Colors**: Mountain mist blue
+- **Accent Colors**: Heritage gold, deep monastery blue
+- **Typography**: Buddhist-inspired font combinations
+- **Shadows**: Monastery lighting effects
+
+## 🌟 Features
+
+### Home Page
+- Hero section with monastery imagery
+- Statistics showcase
+- Feature highlights
+- Monastery preview grid
+
+### Monasteries Page
+- Advanced search and filtering
+- Category-based browsing
+- Virtual tour indicators
+- Detailed monastery cards
+
+### Calendar Page
+- Interactive event calendar
+- Festival and ceremony listings
+- Booking system integration
+- Featured events showcase
+
+### Archives Page (Coming Soon)
+- Digital manuscript collection
+- Historical artifact gallery
+- AI-powered search capabilities
+
+## 📱 Responsive Design
+
+The application is fully responsive and optimized for:
+- Desktop computers
+- Tablets
+- Mobile devices
+- Touch interfaces
+
+## 🤝 Contributing
+
+We welcome contributions to help preserve and share Sikkim's monastery heritage:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+## 🙏 Acknowledgments
+
+- The monasteries of Sikkim for their spiritual heritage
+- Buddhist communities for cultural preservation
+- Contributors and maintainers of this project
+- Open source community for the amazing tools and libraries
+
+## 📞 Contact
+
+For questions, suggestions, or collaboration opportunities:
+
+- **Project**: Monastery360
+- **Repository**: https://github.com/Sahil390/sikkim-monasteries-360
+- **Issues**: Please use GitHub Issues for bug reports and feature requests
+
+---
+
+*Preserving sacred heritage through digital innovation* 🏔️
 
 Yes, you can!
 
