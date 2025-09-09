@@ -151,11 +151,11 @@
 
   /* Animation classes */
   .animate-float {
-    animation: float 12s ease-in-out infinite;
+    animation: float 20s ease-in-out infinite;
   }
 
   .animate-glow {
-    animation: glow 3s ease-in-out infinite alternate;
+    animation: glow 5s ease-in-out infinite alternate;
   }
 
   /* Custom scrollbar */
@@ -179,7 +179,7 @@
 
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+  50% { transform: translateY(-6px); }
 }
 
 @keyframes glow {
