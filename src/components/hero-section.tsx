@@ -64,7 +64,7 @@ const HeroSection = () => {
               </Link>
             </Button>
             
-            <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-foreground px-8 py-4 text-lg">
+            <Button asChild variant="outline" size="lg" className="border-white text-black hover:bg-white hover:text-black px-8 py-4 text-lg">
               <Link to="/archives">
                 <BookOpen className="mr-2 h-5 w-5" />
                 Explore Archives
