@@ -10,21 +10,25 @@ const HeroSection = () => {
       icon: Play,
       title: "Virtual Tours",
       description: "Immersive 360° experiences of monastery interiors",
+      path: "/virtual-tours", // Add path for each feature
     },
     {
       icon: MapPin,
       title: "Interactive Maps",
       description: "Explore 200+ monasteries across Sikkim",
+      path: "/maps",
     },
     {
       icon: BookOpen,
       title: "Digital Archives",
       description: "Access rare manuscripts and historical documents",
+      path: "/archives",
     },
     {
       icon: Calendar,
       title: "Cultural Calendar",
       description: "Discover festivals and spiritual events",
+      path: "/calendar",
     },
   ];
 
@@ -77,15 +81,17 @@ const HeroSection = () => {
             {features.map((feature, index) => {
               const Icon = feature.icon;
               return (
-                <Card key={feature.title} className="bg-white/10 backdrop-blur-md border-white/20 p-6 text-center hover:bg-white/20 transition-all duration-300 animate-float" style={{ animationDelay: `${index * 0.2}s` }}>
-                  <Icon className="h-8 w-8 text-primary-glow mx-auto mb-4" />
-                  <h3 className="font-semibold text-lg mb-2 text-white">
-                    {feature.title}
-                  </h3>
-                  <p className="text-gray-200 text-sm">
-                    {feature.description}
-                  </p>
-                </Card>
+                <Link to={feature.path} key={feature.title}>
+                  <Card className="bg-white/10 backdrop-blur-md border-white/20 p-6 text-center hover:bg-white/20 transition-all duration-300 animate-float cursor-pointer group" style={{ animationDelay: `${index * 0.2}s` }}>
+                    <Icon className="h-8 w-8 text-primary-glow mx-auto mb-4 group-hover:scale-110 transition-transform duration-300" />
+                    <h3 className="font-semibold text-lg mb-2 text-white">
+                      {feature.title}
+                    </h3>
+                    <p className="text-gray-200 text-sm">
+                      {feature.description}
+                    </p>
+                  </Card>
+                </Link>
               );
             })}
           </div>
