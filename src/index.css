@@ -2,95 +2,128 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Monastery360 Design System - Inspired by Buddhist heritage and Himalayan landscapes */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Base colors - Warm stone and parchment */
+    --background: 45 15% 97%;
+    --foreground: 25 20% 15%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Card system - Monastery stone */
+    --card: 42 25% 95%;
+    --card-foreground: 25 20% 15%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    /* Popover system */
+    --popover: 42 25% 95%;
+    --popover-foreground: 25 20% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary - Saffron/monastery orange */
+    --primary: 32 95% 58%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 35 100% 70%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary - Mountain mist blue */
+    --secondary: 210 25% 88%;
+    --secondary-foreground: 25 20% 15%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted - Stone gray */
+    --muted: 40 10% 90%;
+    --muted-foreground: 25 10% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent - Deep monastery blue */
+    --accent: 220 35% 25%;
+    --accent-foreground: 0 0% 100%;
 
+    /* Heritage gold accent */
+    --heritage: 45 85% 65%;
+    --heritage-foreground: 25 20% 15%;
+
+    /* Destructive - Kept minimal */
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Borders and inputs - Subtle stone */
+    --border: 40 15% 85%;
+    --input: 40 15% 90%;
+    --ring: 32 95% 58%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
-    --sidebar-background: 0 0% 98%;
+    /* Gradients - Himalayan inspired */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-monastery: linear-gradient(180deg, hsl(var(--accent)), hsl(var(--primary)));
+    --gradient-sunset: linear-gradient(135deg, hsl(32 95% 58%), hsl(15 80% 60%), hsl(220 35% 25%));
+    --gradient-mist: linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted)));
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    /* Shadows - Soft monastery lighting */
+    --shadow-monastery: 0 10px 40px -10px hsl(var(--primary) / 0.3);
+    --shadow-heritage: 0 20px 60px -15px hsl(var(--accent) / 0.4);
+    --shadow-gentle: 0 4px 20px -4px hsl(var(--foreground) / 0.1);
 
-    --sidebar-primary: 240 5.9% 10%;
+    /* Animation curves */
+    --ease-monastery: cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: all 0.3s var(--ease-monastery);
 
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Sidebar system */
+    --sidebar-background: 42 25% 95%;
+    --sidebar-foreground: 25 20% 15%;
+    --sidebar-primary: 32 95% 58%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 40 10% 90%;
+    --sidebar-accent-foreground: 25 20% 15%;
+    --sidebar-border: 40 15% 85%;
+    --sidebar-ring: 32 95% 58%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* Dark monastery theme - Night temple ambience */
+    --background: 25 15% 8%;
+    --foreground: 45 15% 95%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 25 20% 12%;
+    --card-foreground: 45 15% 95%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 25 20% 12%;
+    --popover-foreground: 45 15% 95%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 32 95% 58%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 35 100% 70%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 25 15% 18%;
+    --secondary-foreground: 45 15% 95%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 25 10% 15%;
+    --muted-foreground: 45 10% 65%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 220 35% 25%;
+    --accent-foreground: 0 0% 100%;
+
+    --heritage: 45 85% 65%;
+    --heritage-foreground: 25 20% 15%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
+    --border: 25 15% 20%;
+    --input: 25 15% 18%;
+    --ring: 32 95% 58%;
+
+    /* Dark gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-monastery: linear-gradient(180deg, hsl(var(--accent)), hsl(var(--primary)));
+    --gradient-sunset: linear-gradient(135deg, hsl(32 95% 58%), hsl(15 80% 60%), hsl(220 35% 25%));
+    --gradient-mist: linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted)));
+
+    --sidebar-background: 25 20% 12%;
+    --sidebar-foreground: 45 15% 95%;
+    --sidebar-primary: 32 95% 58%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-accent: 25 15% 18%;
+    --sidebar-accent-foreground: 45 15% 95%;
+    --sidebar-border: 25 15% 20%;
+    --sidebar-ring: 32 95% 58%;
   }
 }
 
@@ -100,6 +133,56 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+    font-feature-settings: "rlig" 1, "calt" 1;
   }
+
+  /* Monastery-inspired typography */
+  .text-monastery {
+    background: var(--gradient-monastery);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-heritage {
+    color: hsl(var(--heritage));
+  }
+
+  /* Animation classes */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary));
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary-glow));
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes glow {
+  from { box-shadow: 0 0 20px hsl(var(--primary) / 0.5); }
+  to { box-shadow: 0 0 30px hsl(var(--primary-glow) / 0.8); }
 }
