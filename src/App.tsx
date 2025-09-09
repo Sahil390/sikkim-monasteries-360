@@ -7,6 +7,12 @@ import Index from "./pages/Index";
 import Monasteries from "./pages/Monasteries";
 import MonasteryDetail from "./pages/MonasteryDetail";
 import NotFound from "./pages/NotFound";
+import HeroSection from './components/hero-section';
+import VirtualTours from './pages/VirtualTours';
+import InteractiveMaps from './pages/InteractiveMaps';
+import DigitalArchives from './pages/DigitalArchives';
+import CulturalCalendar from './pages/CulturalCalender';
+
 
 const queryClient = new QueryClient();
 
@@ -20,6 +26,10 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/monasteries" element={<Monasteries />} />
           <Route path="/monastery/:id" element={<MonasteryDetail />} />
+          <Route path="/virtual-tours" element={<VirtualTours />} />
+          <Route path="/maps" element={<InteractiveMaps />} />
+          <Route path="/archives" element={<DigitalArchives />} />
+          <Route path="/calendar" element={<CulturalCalendar />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
