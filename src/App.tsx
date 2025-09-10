@@ -1,8 +1,9 @@
+import * as React from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Index from "./pages/Index";
 import Monasteries from "./pages/Monasteries";
 import MonasteryDetail from "./pages/MonasteryDetail";
@@ -12,11 +13,20 @@ import NotFound from "./pages/NotFound";
 import HeroSection from './components/hero-section';
 import VirtualTours from './pages/VirtualTours';
 import InteractiveMaps from './pages/InteractiveMaps';
-import DigitalArchives from './pages/DigitalArchives';
+import DigitalArchives from './pages/Archives';
 import CulturalCalendar from './pages/CulturalCalender';
 
 
 const queryClient = new QueryClient();
+
+// ScrollToTop component: scrolls window to top whenever the route changes
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  React.useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, [pathname]);
+  return null;
+}
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -24,6 +34,8 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+  {/* Scroll to top on route change */}
+  <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/monasteries" element={<Monasteries />} />

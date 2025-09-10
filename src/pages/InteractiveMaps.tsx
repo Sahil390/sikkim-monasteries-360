@@ -180,7 +180,7 @@ const InteractiveMaps = () => {
             <div class="p-2">
               <h3 class="font-bold">${monastery.name}</h3>
               <p class="text-sm">${monastery.location}</p>
-              <button class="mt-2 px-3 py-1 bg-blue-500 text-white rounded text-xs" onclick="document.dispatchEvent(new CustomEvent('selectMonastery', { detail: ${monastery.id} }))">
+              <button class="mt-2 px-3 py-1 bg-blue-500 text-black rounded text-xs" onclick="document.dispatchEvent(new CustomEvent('selectMonastery', { detail: ${monastery.id} }))">
                 Learn More
               </button>
             </div>
