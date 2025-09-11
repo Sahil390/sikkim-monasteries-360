@@ -3,6 +3,9 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { MapPin, Clock, Users, Camera } from "lucide-react";
 import { Link } from "react-router-dom";
+import Phe from "../assets/Phensang-Monastery-OG-Image.jpg";
+import Ph from "../assets/image1.png";
+import Phi from "../assets/image.png";
 
 const monasteries = [
   {
@@ -45,7 +48,7 @@ const monasteries = [
     founded: "1641",
     tradition: "Nyingma",
     visitors: "Daily 6AM-6PM",
-    image: "https://images.unsplash.com/photo-1600298881974-6be191ceeda1?w=500&h=300&fit=crop",
+    image: Phi,
     description: "Sacred monastery situated on a hilltop between two rivers.",
     hasVirtualTour: true,
   },
@@ -56,7 +59,7 @@ const monasteries = [
     founded: "1701",
     tradition: "Nyingma",
     visitors: "Daily 7AM-5PM",
-    image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=500&h=300&fit=crop",
+    image: Ph,
     description: "The first monastery established in Sikkim.",
     hasVirtualTour: false,
   },
@@ -67,7 +70,7 @@ const monasteries = [
     founded: "1721",
     tradition: "Gelug",
     visitors: "Daily 6AM-6PM",
-    image: "https://images.unsplash.com/photo-1590736792157-0cb9b3aa2d2e?w=500&h=300&fit=crop",
+    image: Phe,
     description: "Remote monastery with breathtaking Himalayan views.",
     hasVirtualTour: true,
   },
