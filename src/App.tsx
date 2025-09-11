@@ -13,7 +13,7 @@ import NotFound from "./pages/NotFound";
 import HeroSection from './components/hero-section';
 import VirtualTours from './pages/VirtualTours';
 import InteractiveMaps from './pages/InteractiveMaps';
-import DigitalArchives from './pages/Archives';
+import DigitalArchives from './pages/DigitalArchives';
 import CulturalCalendar from './pages/CulturalCalender';
 
 
