@@ -4,6 +4,25 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import rumtekImg1 from "../assets/rumtek-gallery-1.webp";
+import rumtekImg2 from "../assets/rumtek-gallery-2.webp";
+import rumtekImg3 from "../assets/rumtek-galery-3.jpg";
+import pemayangsteImg1 from "../assets/Pemayangtse-Monastery.jpg";
+import pemayangsteImg2 from "../assets/Pemayangtse-gallery-1.jpg";
+import pemayansteImg3 from "../assets/Pemayangtse_gallery-2.jpg";
+import encheyImg1 from "../assets/Enchey-gallery-1.jpg";
+import encheyImg2 from "../assets/Enchey-gallery-2.jpg";
+import encheyImg3 from "../assets/Enchey-gallery-3.webp";
+import tashidingImg1 from "../assets/Tashiding-gallery-1.jpg";
+import tashidingImg2 from "../assets/Tashiding-gallery-2.jpg";
+import tashidingImg3 from "../assets/Tashiding-gallery-3.jpg";
+import dubdiImg1 from "../assets/dubdi-gallery-1.jpg";
+import dubdiImg2 from "../assets/dubdi-gallery-2.jpg";
+import dubdiImg3 from "../assets/Dubdi-gallery-3.jpg";
+import phensangImg1 from "../assets/Tashiding-gallery-1.jpg";
+import phensangImg2 from "../assets/Tashiding-gallery-2.jpg";
+import phensangImg3 from "../assets/Tashiding-gallery-3.jpg";
+
 
 import { 
   MapPin, 
@@ -29,9 +48,9 @@ const monasteries = [
       description: "The largest monastery in Sikkim and the main seat of the Karma Kagyu lineage outside Tibet. Also known as the Dharmachakra Centre, this monastery is a remarkable example of traditional Tibetan architecture and spiritual significance.",
       fullDescription: "Rumtek Monastery, officially known as the Dharmachakra Centre, is one of the most significant monasteries in Sikkim. Built in the 1960s by the 16th Karmapa, Rangjung Rigpe Dorje, it serves as the main seat of the Karma Kagyu lineage outside Tibet. The monastery is renowned for its authentic Tibetan architecture, precious relics, and spiritual significance in preserving Tibetan Buddhist traditions.",
       images: [
-        "https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800&h=600&fit=crop",
-        "https://images.unsplash.com/photo-1590736969955-71cc94901144?w=800&h=600&fit=crop",
-        "https://images.unsplash.com/photo-1607909664584-3d3a1c7e2ac6?w=800&h=600&fit=crop",
+        rumtekImg1,
+        rumtekImg2,
+        rumtekImg3
       ],
       hasVirtualTour: true,
       rating: 4.8,
@@ -73,9 +92,9 @@ const monasteries = [
       description: "One of the oldest and most important monasteries of Sikkim, known for its spiritual significance and stunning views.",
       fullDescription: "Pemayangtse Monastery is a historic and spiritual landmark in Sikkim. Built in 1705, it is one of the oldest monasteries in the region and serves as a key center for the Nyingma tradition of Tibetan Buddhism. The monastery is renowned for its exquisite wooden sculptures, ancient relics, and serene surroundings.",
       images: [
-        "https://images.unsplash.com/photo-1600298881974-6be191ceeda1?w=800&h=600&fit=crop",
-        "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&h=600&fit=crop",
-        "https://images.unsplash.com/photo-1590736792157-0cb9b3aa2d2e?w=800&h=600&fit=crop",
+        pemayangsteImg1,
+        pemayangsteImg2,
+        pemayansteImg3
       ],
       hasVirtualTour: true,
       rating: 4.7,
@@ -111,9 +130,9 @@ const monasteries = [
       description: "A serene monastery offering stunning views of Gangtok and the surrounding mountains.",
       fullDescription: "Enchey Monastery, located in Gangtok, is a small yet significant monastery in the Nyingma tradition of Tibetan Buddhism. Built in 1909, it is known for its peaceful ambiance, vibrant festivals, and breathtaking views of the surrounding mountains.",
       images: [
-        "https://images.unsplash.com/photo-1590736969955-71cc94901144?w=800&h=600&fit=crop",
-        "https://images.unsplash.com/photo-1607909664584-3d3a1c7e2ac6?w=800&h=600&fit=crop",
-        "https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800&h=600&fit=crop",
+        encheyImg1,
+        encheyImg2,
+        encheyImg3
       ],
       hasVirtualTour: false,
       rating: 4.5,
@@ -148,9 +167,9 @@ const monasteries = [
       description: "Sacred monastery situated on a hilltop between two rivers, known for its spiritual significance.",
       fullDescription: "Tashiding Monastery is one of the holiest monasteries in Sikkim, founded in 1641 by Ngadak Sempa Chempo Phunshok Rigzing. It is renowned for its sacred chorten and annual Bumchu festival, which attracts devotees from across the region.",
       images: [
-        "https://images.unsplash.com/photo-1600298881974-6be191ceeda1?w=800&h=600&fit=crop",
-        "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&h=600&fit=crop",
-        "https://images.unsplash.com/photo-1590736792157-0cb9b3aa2d2e?w=800&h=600&fit=crop",
+        tashidingImg1,
+        tashidingImg2,
+        tashidingImg3
       ],
       hasVirtualTour: true,
       rating: 4.6,
@@ -180,9 +199,9 @@ const monasteries = [
       description: "The first monastery established in Sikkim, offering a serene and historic atmosphere.",
       fullDescription: "Dubdi Monastery, also known as the Yuksom Monastery, was established in 1701 by Lhatsun Namkha Jigme. It is the oldest monastery in Sikkim and holds great historical and spiritual significance.",
       images: [
-        "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&h=600&fit=crop",
-        "https://images.unsplash.com/photo-1590736792157-0cb9b3aa2d2e?w=800&h=600&fit=crop",
-        "https://images.unsplash.com/photo-1600298881974-6be191ceeda1?w=800&h=600&fit=crop",
+        dubdiImg1,
+        dubdiImg2,
+        dubdiImg3
       ],
       hasVirtualTour: false,
       rating: 4.4,
@@ -212,9 +231,9 @@ const monasteries = [
       description: "Remote monastery with breathtaking Himalayan views and a rich spiritual heritage.",
       fullDescription: "Phensang Monastery, established in 1721, is a prominent Gelug monastery in North Sikkim. It is known for its serene location, vibrant festivals, and contributions to the preservation of Tibetan Buddhist traditions.",
       images: [
-        "https://images.unsplash.com/photo-1590736792157-0cb9b3aa2d2e?w=800&h=600&fit=crop",
-        "https://images.unsplash.com/photo-1600298881974-6be191ceeda1?w=800&h=600&fit=crop",
-        "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&h=600&fit=crop",
+          phensangImg1,
+          phensangImg2,
+          phensangImg3,
       ],
       hasVirtualTour: true,
       rating: 4.7,
