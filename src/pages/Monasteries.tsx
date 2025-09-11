@@ -116,7 +116,7 @@ const Monasteries = () => {
             Get guided tours, transportation, and cultural insights.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-foreground">
+            <Button size="lg" variant="outline" className="border-white text-black hover:bg-white hover:text-black">
               Plan Your Visit
             </Button>
             <Button size="lg" className="bg-white text-foreground hover:bg-gray-100">

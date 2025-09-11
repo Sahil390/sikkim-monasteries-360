@@ -10,7 +10,11 @@ const HeroSection = () => {
       icon: Play,
       title: "Virtual Tours",
       description: "Immersive 360° experiences of monastery interiors",
+<<<<<<< HEAD
       path: "/virtual-tours",
+=======
+      path: "/virtual-tours", // Add path for each feature
+>>>>>>> 359522c46059f1ebeb09eb02788d6c371fe1de9d
     },
     {
       icon: MapPin,
@@ -29,12 +33,15 @@ const HeroSection = () => {
       title: "Cultural Calendar",
       description: "Discover festivals and spiritual events",
       path: "/calendar",
+<<<<<<< HEAD
     },
     {
       icon: CalendarDays,
       title: "Plan Your Visit",
       description: "Essential information for your monastery journey",
       path: "/PlanYourVisit",
+=======
+>>>>>>> 359522c46059f1ebeb09eb02788d6c371fe1de9d
     },
   ];
 
