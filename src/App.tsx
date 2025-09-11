@@ -6,13 +6,13 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Monasteries from "./pages/Monasteries";
 import MonasteryDetail from "./pages/MonasteryDetail";
-import NotFound from "./pages/NotFound";
+import NotFound from "./pages/PlanYourVisit"; // 404 Page (edit later)
 import HeroSection from './components/hero-section';
 import VirtualTours from './pages/VirtualTours';
 import InteractiveMaps from './pages/InteractiveMaps';
 import DigitalArchives from './pages/DigitalArchives';
 import CulturalCalendar from './pages/CulturalCalender';
-
+import PlanYourVisit from 'src/pages/PlanYourVisit';  
 
 const queryClient = new QueryClient();
 

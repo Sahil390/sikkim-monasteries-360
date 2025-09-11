@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Play, MapPin, BookOpen, Calendar } from "lucide-react";
+import { Play, MapPin, BookOpen, Calendar, CalendarDays } from "lucide-react";
 import { Link } from "react-router-dom";
 import heroImage from "@/assets/monastery-hero.jpg";
 
@@ -10,7 +10,7 @@ const HeroSection = () => {
       icon: Play,
       title: "Virtual Tours",
       description: "Immersive 360° experiences of monastery interiors",
-      path: "/virtual-tours", // Add path for each feature
+      path: "/virtual-tours",
     },
     {
       icon: MapPin,
@@ -29,6 +29,12 @@ const HeroSection = () => {
       title: "Cultural Calendar",
       description: "Discover festivals and spiritual events",
       path: "/calendar",
+    },
+    {
+      icon: CalendarDays,
+      title: "Plan Your Visit",
+      description: "Essential information for your monastery journey",
+      path: "/PlanYourVisit",
     },
   ];
 
@@ -77,7 +83,7 @@ const HeroSection = () => {
           </div>
 
           {/* Feature Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 max-w-7xl mx-auto">
             {features.map((feature, index) => {
               const Icon = feature.icon;
               return (
