@@ -43,7 +43,7 @@ const App = () => (
           <Route path="/virtual-tours" element={<VirtualTours />} />
           <Route path="/maps" element={<InteractiveMaps />} />
           <Route path="/archives" element={<DigitalArchives />} />
-          <Route path="/calendar" element={<Calendar />} />
+          <Route path="/calendar" element={<CulturalCalendar />} />
           <Route path="/cultural-calendar" element={<CulturalCalendar />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
