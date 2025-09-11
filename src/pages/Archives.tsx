@@ -17,6 +17,7 @@ import {
   MapPin,
   Clock
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Archives = () => {
   const archiveCategories = [
@@ -74,9 +75,28 @@ const Archives = () => {
           </div>
           <p className="text-xl text-gray-200 max-w-3xl mx-auto">
             Preserving centuries of Buddhist heritage through cutting-edge digital preservation. 
-            Our comprehensive archive system is currently under development to bring you unprecedented 
-            access to Sikkim's sacred treasures.
+            Explore our growing collection while we work to bring you unprecedented access to Sikkim's sacred treasures.
           </p>
+          <div className="flex flex-wrap justify-center gap-4 mt-8">
+            <Button variant="outline" size="sm" className="border-white/30 text-white hover:bg-white/10" asChild>
+              <Link to="/">
+                <Archive className="w-4 h-4 mr-2" />
+                Home
+              </Link>
+            </Button>
+            <Button variant="outline" size="sm" className="border-white/30 text-white hover:bg-white/10" asChild>
+              <Link to="/monasteries">
+                <MapPin className="w-4 h-4 mr-2" />
+                Monasteries
+              </Link>
+            </Button>
+            <Button variant="outline" size="sm" className="border-white/30 text-white hover:bg-white/10" asChild>
+              <Link to="/calendar">
+                <Calendar className="w-4 h-4 mr-2" />
+                Events
+              </Link>
+            </Button>
+          </div>
         </div>
       </div>
 
@@ -106,9 +126,11 @@ const Archives = () => {
                   <Bell className="w-5 h-5 mr-2" />
                   Notify Me When Ready
                 </Button>
-                <Button size="lg" variant="outline">
-                  <Download className="w-5 h-5 mr-2" />
-                  Preview Sample Content
+                <Button size="lg" variant="outline" asChild>
+                  <Link to="/monasteries">
+                    <MapPin className="w-5 h-5 mr-2" />
+                    Explore Monasteries
+                  </Link>
                 </Button>
               </div>
             </CardContent>
@@ -293,13 +315,17 @@ const Archives = () => {
             Your contribution helps us accelerate the development of this invaluable resource.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="shadow-monastery">
-              <Calendar className="w-5 h-5 mr-2" />
-              Schedule a Tour
+            <Button size="lg" className="shadow-monastery" asChild>
+              <Link to="/calendar">
+                <Calendar className="w-5 h-5 mr-2" />
+                View Events Calendar
+              </Link>
             </Button>
-            <Button size="lg" variant="outline">
-              <MapPin className="w-5 h-5 mr-2" />
-              Visit Monasteries
+            <Button size="lg" variant="outline" asChild>
+              <Link to="/monasteries">
+                <MapPin className="w-5 h-5 mr-2" />
+                Visit Monasteries
+              </Link>
             </Button>
           </div>
         </div>
