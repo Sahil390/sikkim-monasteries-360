@@ -3,9 +3,13 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { MapPin, Clock, Users, Camera } from "lucide-react";
 import { Link } from "react-router-dom";
+
 import Phe from "../assets/Phensang-Monastery-OG-Image.jpg";
 import Ph from "../assets/image1.png";
 import Phi from "../assets/image.png";
+import rumtekImg from "../assets/rumtek-monastery.jpg";
+import PemayangsteImg from "../assets/Pemayangtse-Monastery.jpg";
+import EncheyImg from "../assets/Enchey-monastery.jpg";
 
 const monasteries = [
   {
@@ -15,7 +19,7 @@ const monasteries = [
     founded: "1966",
     tradition: "Kagyu",
     visitors: "Daily 6AM-6PM",
-    image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=500&h=300&fit=crop",
+    image: rumtekImg,
     description: "The largest monastery in Sikkim, headquarters of the Karma Kagyu lineage.",
     hasVirtualTour: true,
   },
@@ -26,7 +30,7 @@ const monasteries = [
     founded: "1705",
     tradition: "Nyingma",
     visitors: "Daily 7AM-5PM",
-    image: "https://images.unsplash.com/photo-1590736969955-71cc94901144?w=500&h=300&fit=crop",
+    image: PemayangsteImg,
     description: "One of the oldest and most important monasteries of Sikkim.",
     hasVirtualTour: true,
   },
@@ -37,7 +41,7 @@ const monasteries = [
     founded: "1909",
     tradition: "Nyingma",
     visitors: "Daily 6AM-7PM",
-    image: "https://images.unsplash.com/photo-1607909664584-3d3a1c7e2ac6?w=500&h=300&fit=crop",
+    image: EncheyImg,
     description: "Beautiful monastery with stunning views of Gangtok city.",
     hasVirtualTour: false,
   },

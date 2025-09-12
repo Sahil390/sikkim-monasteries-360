@@ -5,9 +5,12 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Play, Pause, RotateCcw, ZoomIn, ZoomOut, Compass, MapPin, Info, Fullscreen, Minimize } from "lucide-react";
 
+<<<<<<< HEAD
+=======
 // Import Pannellum CSS
 import 'pannellum/src/css/pannellum.css';
 
+>>>>>>> 359522c46059f1ebeb09eb02788d6c371fe1de9d
 // Types
 interface VirtualTour {
   id: string;
@@ -41,10 +44,22 @@ const VirtualTours = () => {
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [showInfo, setShowInfo] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+<<<<<<< HEAD
+  const [isPlaying, setIsPlaying] = useState(true);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const sceneRef = useRef<any>(null);
+  const rendererRef = useRef<any>(null);
+  const cameraRef = useRef<any>(null);
+  const sphereRef = useRef<any>(null);
+  const hotspotsRef = useRef<any[]>([]);
+
+  // Sample virtual tour data with actual 360° images
+=======
   const viewerRef = useRef<HTMLDivElement>(null);
   const pannellumViewerRef = useRef<any>(null);
 
   // Sample virtual tour data
+>>>>>>> 359522c46059f1ebeb09eb02788d6c371fe1de9d
   useEffect(() => {
     const sampleTours: VirtualTour[] = [
       {
@@ -57,7 +72,11 @@ const VirtualTours = () => {
           {
             id: "main-courtyard",
             title: "Main Courtyard",
+<<<<<<< HEAD
+            imageUrl: "https://cdn.pannellum.org/2.5/pannellum.htm?image=https://i.imgur.com/KgRj2XQ.jpg",
+=======
             imageUrl: "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1200&h=600",
+>>>>>>> 359522c46059f1ebeb09eb02788d6c371fe1de9d
             hotspots: [
               { id: "info-1", pitch: -10, yaw: 0, type: "info", text: "The main courtyard is used for ceremonies and gatherings." },
               { id: "scene-1", pitch: -5, yaw: 90, type: "scene", sceneId: "prayer-hall" },
@@ -66,7 +85,11 @@ const VirtualTours = () => {
           {
             id: "prayer-hall",
             title: "Prayer Hall",
+<<<<<<< HEAD
+            imageUrl: "https://cdn.pannellum.org/2.5/pannellum.htm?image=https://i.imgur.com/8M7vqJc.jpg",
+=======
             imageUrl: "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1200&h=600",
+>>>>>>> 359522c46059f1ebeb09eb02788d6c371fe1de9d
             hotspots: [
               { id: "info-2", pitch: -5, yaw: 180, type: "info", text: "The prayer hall features intricate thangka paintings and statues." },
               { id: "scene-2", pitch: -5, yaw: -90, type: "scene", sceneId: "main-courtyard" },
@@ -84,7 +107,11 @@ const VirtualTours = () => {
           {
             id: "entrance",
             title: "Main Entrance",
+<<<<<<< HEAD
+            imageUrl: "https://cdn.pannellum.org/2.5/pannellum.htm?image=https://i.imgur.com/KgRj2XQ.jpg",
+=======
             imageUrl: "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1200&h=600",
+>>>>>>> 359522c46059f1ebeb09eb02788d6c371fe1de9d
             hotspots: [
               { id: "info-3", pitch: -10, yaw: 0, type: "info", text: "The entrance is adorned with traditional Buddhist motifs." },
               { id: "scene-3", pitch: -5, yaw: 90, type: "scene", sceneId: "main-temple" },
@@ -93,13 +120,19 @@ const VirtualTours = () => {
           {
             id: "main-temple",
             title: "Main Temple",
+<<<<<<< HEAD
+            imageUrl: "https://cdn.pannellum.org/2.5/pannellum.htm?image=https://i.imgur.com/8M7vqJc.jpg",
+=======
             imageUrl: "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1200&h=600",
+>>>>>>> 359522c46059f1ebeb09eb02788d6c371fe1de9d
             hotspots: [
               { id: "info-4", pitch: -5, yaw: 180, type: "info", text: "The main temple houses a seven-tiered painted wooden structure." },
               { id: "scene-4", pitch: -5, yaw: -90, type: "scene", sceneId: "entrance" },
             ]
           }
         ]
+<<<<<<< HEAD
+=======
       },
       {
         id: "tashiding",
@@ -127,6 +160,7 @@ const VirtualTours = () => {
             ]
           }
         ]
+>>>>>>> 359522c46059f1ebeb09eb02788d6c371fe1de9d
       }
     ];
 
@@ -136,6 +170,173 @@ const VirtualTours = () => {
     setIsLoading(false);
   }, []);
 
+<<<<<<< HEAD
+  // Initialize Three.js when component mounts or scene changes
+  useEffect(() => {
+    if (!containerRef.current || !currentScene) return;
+
+    // Dynamically import Three.js
+    import('three').then((THREE) => {
+      // Initialize scene
+      const scene = new THREE.Scene();
+      sceneRef.current = scene;
+
+      // Initialize camera
+      const camera = new THREE.PerspectiveCamera(75, containerRef.current.clientWidth / containerRef.current.clientHeight, 0.1, 1000);
+      cameraRef.current = camera;
+
+      // Initialize renderer
+      const renderer = new THREE.WebGLRenderer({ antialias: true });
+      renderer.setSize(containerRef.current.clientWidth, containerRef.current.clientHeight);
+      renderer.setPixelRatio(window.devicePixelRatio);
+      containerRef.current.innerHTML = '';
+      containerRef.current.appendChild(renderer.domElement);
+      rendererRef.current = renderer;
+
+      // Create sphere geometry
+      const geometry = new THREE.SphereGeometry(500, 60, 40);
+      geometry.scale(-1, 1, 1); // Invert the sphere to view from inside
+
+      // Load texture
+      const textureLoader = new THREE.TextureLoader();
+      const texture = textureLoader.load(currentScene.imageUrl, () => {
+        setIsLoading(false);
+      });
+
+      // Create material and mesh
+      const material = new THREE.MeshBasicMaterial({ map: texture });
+      const sphere = new THREE.Mesh(geometry, material);
+      scene.add(sphere);
+      sphereRef.current = sphere;
+
+      // Add hotspots
+      clearHotspots();
+      currentScene.hotspots.forEach(hotspot => {
+        addHotspot(hotspot, THREE);
+      });
+
+      // Set initial camera position
+      camera.position.set(0, 0, 0.1);
+
+      // Add controls
+      let isUserInteracting = false;
+      let lon = 0;
+      let lat = 0;
+      let phi = 0;
+      let theta = 0;
+      const distance = 50;
+
+      function onPointerDown(event: MouseEvent) {
+        isUserInteracting = true;
+        containerRef.current!.style.cursor = 'grabbing';
+      }
+
+      function onPointerMove(event: MouseEvent) {
+        if (isUserInteracting) {
+          lon = (event.clientX - window.innerWidth / 2) * 0.1;
+          lat = (event.clientY - window.innerHeight / 2) * 0.1;
+        }
+      }
+
+      function onPointerUp() {
+        isUserInteracting = false;
+        containerRef.current!.style.cursor = 'grab';
+      }
+
+      function onWheel(event: WheelEvent) {
+        camera.fov += event.deltaY * 0.05;
+        camera.fov = Math.max(30, Math.min(100, camera.fov));
+        camera.updateProjectionMatrix();
+      }
+
+      containerRef.current.addEventListener('mousedown', onPointerDown);
+      containerRef.current.addEventListener('mousemove', onPointerMove);
+      containerRef.current.addEventListener('mouseup', onPointerUp);
+      containerRef.current.addEventListener('wheel', onWheel);
+      containerRef.current.style.cursor = 'grab';
+
+      // Animation loop
+      function animate() {
+        requestAnimationFrame(animate);
+
+        lat = Math.max(-85, Math.min(85, lat));
+        phi = THREE.MathUtils.degToRad(90 - lat);
+        theta = THREE.MathUtils.degToRad(lon);
+
+        camera.position.x = distance * Math.sin(phi) * Math.cos(theta);
+        camera.position.y = distance * Math.cos(phi);
+        camera.position.z = distance * Math.sin(phi) * Math.sin(theta);
+
+        camera.lookAt(0, 0, 0);
+
+        renderer.render(scene, camera);
+      }
+
+      animate();
+
+      // Handle window resize
+      function onWindowResize() {
+        camera.aspect = containerRef.current!.clientWidth / containerRef.current!.clientHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(containerRef.current!.clientWidth, containerRef.current!.clientHeight);
+      }
+
+      window.addEventListener('resize', onWindowResize);
+
+      // Cleanup function
+      return () => {
+        window.removeEventListener('resize', onWindowResize);
+        containerRef.current?.removeEventListener('mousedown', onPointerDown);
+        containerRef.current?.removeEventListener('mousemove', onPointerMove);
+        containerRef.current?.removeEventListener('mouseup', onPointerUp);
+        containerRef.current?.removeEventListener('wheel', onWheel);
+        
+        if (rendererRef.current) {
+          rendererRef.current.dispose();
+        }
+      };
+    }).catch(error => {
+      console.error('Error loading Three.js:', error);
+    });
+  }, [currentScene]);
+
+  const addHotspot = (hotspot: Hotspot, THREE: any) => {
+    const hotspotGeometry = new THREE.SphereGeometry(2, 32, 32);
+    const hotspotMaterial = new THREE.MeshBasicMaterial({ 
+      color: hotspot.type === 'info' ? 0xff0000 : 0x0000ff,
+      transparent: true,
+      opacity: 0.7
+    });
+    
+    const hotspotMesh = new THREE.Mesh(hotspotGeometry, hotspotMaterial);
+    
+    // Convert spherical coordinates to Cartesian
+    const phi = THREE.MathUtils.degToRad(90 - hotspot.pitch);
+    const theta = THREE.MathUtils.degToRad(hotspot.yaw);
+    const distance = 490; // Slightly inside the sphere
+    
+    hotspotMesh.position.x = distance * Math.sin(phi) * Math.cos(theta);
+    hotspotMesh.position.y = distance * Math.cos(phi);
+    hotspotMesh.position.z = distance * Math.sin(phi) * Math.sin(theta);
+    
+    hotspotMesh.userData = hotspot;
+    sceneRef.current.add(hotspotMesh);
+    hotspotsRef.current.push(hotspotMesh);
+    
+    // Add click event
+    hotspotMesh.addEventListener('click', () => {
+      handleHotspotClick(hotspot);
+    });
+  };
+
+  const clearHotspots = () => {
+    hotspotsRef.current.forEach(hotspot => {
+      sceneRef.current.remove(hotspot);
+    });
+    hotspotsRef.current = [];
+  };
+
+=======
   // Load Pannellum dynamically to avoid SSR issues
   useEffect(() => {
     if (viewerRef.current && currentScene && !pannellumViewerRef.current) {
@@ -172,17 +373,21 @@ const VirtualTours = () => {
     };
   }, [currentScene]);
 
+>>>>>>> 359522c46059f1ebeb09eb02788d6c371fe1de9d
   const handleTourChange = (tourId: string) => {
     const tour = tours.find(t => t.id === tourId);
     if (tour) {
       setSelectedTour(tour);
       setCurrentScene(tour.scenes[0]);
+<<<<<<< HEAD
+=======
       
       // Reset viewer
       if (pannellumViewerRef.current) {
         pannellumViewerRef.current.destroy();
         pannellumViewerRef.current = null;
       }
+>>>>>>> 359522c46059f1ebeb09eb02788d6c371fe1de9d
     }
   };
 
@@ -205,8 +410,13 @@ const VirtualTours = () => {
   };
 
   const toggleFullscreen = () => {
+<<<<<<< HEAD
+    if (!document.fullscreenElement && containerRef.current) {
+      containerRef.current.requestFullscreen().catch(err => {
+=======
     if (!document.fullscreenElement) {
       viewerRef.current?.requestFullscreen().catch(err => {
+>>>>>>> 359522c46059f1ebeb09eb02788d6c371fe1de9d
         console.error(`Error attempting to enable fullscreen: ${err.message}`);
       });
       setIsFullscreen(true);
@@ -218,6 +428,10 @@ const VirtualTours = () => {
     }
   };
 
+<<<<<<< HEAD
+  const togglePlayPause = () => {
+    setIsPlaying(!isPlaying);
+=======
   const handleZoomIn = () => {
     if (pannellumViewerRef.current) {
       pannellumViewerRef.current.setHfov(pannellumViewerRef.current.getHfov() - 10);
@@ -236,6 +450,7 @@ const VirtualTours = () => {
       pannellumViewerRef.current.setYaw(0);
       pannellumViewerRef.current.setHfov(100);
     }
+>>>>>>> 359522c46059f1ebeb09eb02788d6c371fe1de9d
   };
 
   if (isLoading) {
@@ -357,8 +572,20 @@ const VirtualTours = () => {
                 </div>
               </CardHeader>
               <CardContent className="p-0 relative">
+<<<<<<< HEAD
+                <div ref={containerRef} className="relative h-96 md:h-[500px] w-full">
+                  {isLoading && (
+                    <div className="absolute inset-0 flex items-center justify-center bg-slate-100">
+                      <div className="text-center">
+                        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mx-auto"></div>
+                        <p className="mt-4 text-slate-600">Loading scene...</p>
+                      </div>
+                    </div>
+                  )}
+=======
                 <div ref={viewerRef} className="relative h-96 md:h-[500px] w-full">
                   {/* Pannellum will be initialized here */}
+>>>>>>> 359522c46059f1ebeb09eb02788d6c371fe1de9d
                 </div>
                 
                 {/* Custom Controls */}
@@ -367,14 +594,25 @@ const VirtualTours = () => {
                     variant="ghost" 
                     size="icon" 
                     className="text-white hover:bg-white/20"
+<<<<<<< HEAD
+                    onClick={togglePlayPause}
+                  >
+                    {isPlaying ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
+=======
                     onClick={handleZoomIn}
                   >
                     <ZoomIn className="h-4 w-4" />
+>>>>>>> 359522c46059f1ebeb09eb02788d6c371fe1de9d
                   </Button>
                   <Button 
                     variant="ghost" 
                     size="icon" 
                     className="text-white hover:bg-white/20"
+<<<<<<< HEAD
+                    onClick={() => {
+                      // Reset view logic would go here
+                    }}
+=======
                     onClick={handleZoomOut}
                   >
                     <ZoomOut className="h-4 w-4" />
@@ -384,6 +622,7 @@ const VirtualTours = () => {
                     size="icon" 
                     className="text-white hover:bg-white/20"
                     onClick={handleResetView}
+>>>>>>> 359522c46059f1ebeb09eb02788d6c371fe1de9d
                   >
                     <RotateCcw className="h-4 w-4" />
                   </Button>
@@ -450,6 +689,9 @@ const VirtualTours = () => {
   );
 };
 
+<<<<<<< HEAD
+export default VirtualTours;
+=======
 export default VirtualTours;
 
 /*
@@ -461,3 +703,4 @@ Consider adding loading states for better user experience when images are loadin
 
 For better performance with many tours, consider implementing lazy loading of images
 */
+>>>>>>> 359522c46059f1ebeb09eb02788d6c371fe1de9d
