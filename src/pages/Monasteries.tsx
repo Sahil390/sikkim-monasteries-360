@@ -2,6 +2,8 @@ import Navigation from "@/components/ui/navigation";
 import MonasteryGrid from "@/components/monastery-grid";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
+import { useToast } from "@/components/ui/use-toast";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Search, Filter, MapPin } from "lucide-react";
@@ -10,6 +12,35 @@ import { useState } from "react";
 const Monasteries = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedFilter, setSelectedFilter] = useState("all");
+  const navigate = useNavigate();
+  const { toast } = useToast();
+
+  const MapViewButton = () => (
+    <Button variant="outline" className="whitespace-nowrap" onClick={() => navigate('/maps')}>
+      <MapPin className="w-4 h-4 mr-2" />
+      Map View
+    </Button>
+  );
+
+  const CTAButtons = () => (
+    <>
+      <Button size="lg" variant="outline" className="border-white text-black hover:bg-white hover:text-black" onClick={() => navigate('/plan-your-visit')}>
+        Plan Your Visit
+      </Button>
+      <Button size="lg" className="bg-white text-foreground hover:bg-gray-100" onClick={() => {
+        const blob = new Blob(['Sikkim Monasteries Guide'], { type: 'application/pdf' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'sikkim-monasteries-guide.pdf';
+        a.click();
+        URL.revokeObjectURL(url);
+        toast({ title: 'Download started', description: 'Guide download started.' });
+      }}>
+        Download Guide
+      </Button>
+    </>
+  );
 
   const filters = [
     { id: "all", label: "All Monasteries" },
@@ -67,10 +98,7 @@ const Monasteries = () => {
             </div>
 
             {/* Map View Button */}
-            <Button variant="outline" className="whitespace-nowrap">
-              <MapPin className="w-4 h-4 mr-2" />
-              Map View
-            </Button>
+            <MapViewButton />
           </div>
         </div>
       </div>
@@ -116,12 +144,7 @@ const Monasteries = () => {
             Get guided tours, transportation, and cultural insights.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="outline" className="border-white text-black hover:bg-white hover:text-black">
-              Plan Your Visit
-            </Button>
-            <Button size="lg" className="bg-white text-foreground hover:bg-gray-100">
-              Download Guide
-            </Button>
+            <CTAButtons />
           </div>
         </div>
       </div>

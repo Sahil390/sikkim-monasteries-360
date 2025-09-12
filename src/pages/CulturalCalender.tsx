@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useToast } from "@/components/ui/use-toast";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -52,6 +54,9 @@ const CulturalCalendar = () => {
   const [showAR, setShowAR] = useState(false);
   const [notificationsEnabled, setNotificationsEnabled] = useState(false);
   const [viewMode, setViewMode] = useState<"calendar" | "list">("calendar");
+  const [favorite, setFavorite] = useState(false);
+  const navigate = useNavigate();
+  const { toast } = useToast();
 
   // Sample festival data
   useEffect(() => {
@@ -596,17 +601,28 @@ const CulturalCalendar = () => {
                   <Bell className="h-4 w-4 mr-2" />
                   Set Reminder
                 </Button>
-                <Button variant="outline" className="w-full justify-start">
+                <Button variant="outline" className="w-full justify-start" onClick={() => toast({ title: 'Reminder set', description: 'We will remind you before this event.' })}>
+                  <Bell className="h-4 w-4 mr-2" />
+                  Set Reminder
+                </Button>
+                <Button variant="outline" className="w-full justify-start" onClick={() => {
+                  if (navigator.share) {
+                    navigator.share({ title: document.title, url: window.location.href });
+                  } else {
+                    navigator.clipboard?.writeText(window.location.href);
+                    toast({ title: 'Link copied', description: 'Calendar URL copied to clipboard.' });
+                  }
+                }}>
                   <Share className="h-4 w-4 mr-2" />
                   Share Calendar
                 </Button>
-                <Button variant="outline" className="w-full justify-start">
+                <Button variant="outline" className="w-full justify-start" onClick={() => navigate ? navigate('/maps') : window.location.assign('/maps')}>
                   <MapPin className="h-4 w-4 mr-2" />
                   Find Nearby Monasteries
                 </Button>
-                <Button variant="outline" className="w-full justify-start">
+                <Button variant="outline" className="w-full justify-start" onClick={() => { setFavorite(!favorite); toast({ title: favorite ? 'Removed' : 'Added', description: favorite ? 'Removed from favorites' : 'Added to favorites' }); }}>
                   <Heart className="h-4 w-4 mr-2" />
-                  Add to Favorites
+                  {favorite ? 'Remove Favorite' : 'Add to Favorites'}
                 </Button>
               </CardContent>
             </Card>

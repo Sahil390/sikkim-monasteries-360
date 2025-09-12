@@ -34,7 +34,7 @@ const HeroSection = () => {
       icon: CalendarDays,
       title: "Plan Your Visit",
       description: "Essential information for your monastery journey",
-      path: "",
+      path: "plan-your-visit",
     },
   ];
 

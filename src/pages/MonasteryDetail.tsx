@@ -36,6 +36,9 @@ import {
   Download,
   Share2
 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { useToast } from "@/components/ui/use-toast";
+import { toSlug } from "@/lib/utils";
 
 const monasteries = [
     {
@@ -257,6 +260,8 @@ const monasteries = [
 
 const MonasteryDetail = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
+  const { toast } = useToast();
   const monastery = monasteries.find(m => m.id === Number(id));
 
   if (!monastery) {
@@ -303,7 +308,7 @@ const MonasteryDetail = () => {
         {/* Action Buttons */}
         <div className="absolute bottom-8 right-8 flex gap-3">
           {monastery.hasVirtualTour && (
-            <Button size="lg" className="bg-primary hover:bg-primary-glow shadow-monastery">
+            <Button size="lg" className="bg-primary hover:bg-primary-glow shadow-monastery" onClick={() => navigate(`/virtual-tours?tour=${toSlug(monastery.name)}`)}>
               <Play className="w-5 h-5 mr-2" />
               Virtual Tour
             </Button>
@@ -461,22 +466,32 @@ const MonasteryDetail = () => {
                 <CardTitle>Quick Actions</CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
-                <Button className="w-full" variant="outline">
+                <Button className="w-full" variant="outline" onClick={() => navigate(`/maps?monastery=${toSlug(monastery.name)}`)}>
                   <MapPin className="w-4 h-4 mr-2" />
                   View on Map
                 </Button>
                 
-                <Button className="w-full" variant="outline">
+                <Button className="w-full" variant="outline" onClick={() => navigate('/plan-your-visit')}>
                   <Calendar className="w-4 h-4 mr-2" />
                   Plan Visit
                 </Button>
                 
-                <Button className="w-full" variant="outline">
+                <Button className="w-full" variant="outline" onClick={() => toast({ title: 'Audio Guide', description: 'Audio guide is coming soon.' })}>
                   <BookOpen className="w-4 h-4 mr-2" />
                   Audio Guide
                 </Button>
                 
-                <Button className="w-full" variant="outline">
+                <Button className="w-full" variant="outline" onClick={() => {
+                  // Trigger a fake download (placeholder)
+                  const blob = new Blob([`Brochure for ${monastery.name}`], { type: 'application/pdf' });
+                  const url = URL.createObjectURL(blob);
+                  const a = document.createElement('a');
+                  a.href = url;
+                  a.download = `${toSlug(monastery.name)}-brochure.pdf`;
+                  a.click();
+                  URL.revokeObjectURL(url);
+                  toast({ title: 'Download started', description: 'Brochure download started.' });
+                }}>
                   <Download className="w-4 h-4 mr-2" />
                   Download Brochure
                 </Button>
