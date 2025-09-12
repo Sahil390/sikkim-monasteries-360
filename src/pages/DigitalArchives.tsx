@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 import Navigation from "@/components/ui/navigation";
->>>>>>> 359522c46059f1ebeb09eb02788d6c371fe1de9d
 import { useState, useEffect, useRef } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -332,14 +329,9 @@ const DigitalArchives = () => {
   }
 
   return (
-<<<<<<< HEAD
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-blue-50/30 p-4 md:p-8">
-      <div className="max-w-7xl mx-auto">
-=======
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-blue-50/30">
       <Navigation />
       <div className="max-w-7xl mx-auto p-4 md:p-8">
->>>>>>> 359522c46059f1ebeb09eb02788d6c371fe1de9d
         {/* Header */}
         <div className="mb-8 text-center">
           <div className="flex items-center justify-center gap-2 mb-4">

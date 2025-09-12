@@ -144,8 +144,12 @@ const MonasteryGrid = () => {
                   </Link>
                 </Button>
                 {monastery.hasVirtualTour && (
-                  <Button variant="outline" size="sm">
-                    <Camera className="w-4 h-4" />
+                  <Button asChild variant="outline" size="sm">
+                    <Link to={`/virtual-tours?tour=${encodeURIComponent(
+                      monastery.name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')
+                    )}`}>
+                      <Camera className="w-4 h-4" />
+                    </Link>
                   </Button>
                 )}
               </div>

@@ -1,16 +1,11 @@
 import { useState, useEffect, useRef } from "react";
+import { useLocation } from "react-router-dom";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Play, Pause, RotateCcw, ZoomIn, ZoomOut, Compass, MapPin, Info, Fullscreen, Minimize } from "lucide-react";
 
-<<<<<<< HEAD
-=======
-// Import Pannellum CSS
-import 'pannellum/src/css/pannellum.css';
-
->>>>>>> 359522c46059f1ebeb09eb02788d6c371fe1de9d
 // Types
 interface VirtualTour {
   id: string;
@@ -44,7 +39,6 @@ const VirtualTours = () => {
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [showInfo, setShowInfo] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-<<<<<<< HEAD
   const [isPlaying, setIsPlaying] = useState(true);
   const containerRef = useRef<HTMLDivElement>(null);
   const sceneRef = useRef<any>(null);
@@ -54,12 +48,6 @@ const VirtualTours = () => {
   const hotspotsRef = useRef<any[]>([]);
 
   // Sample virtual tour data with actual 360° images
-=======
-  const viewerRef = useRef<HTMLDivElement>(null);
-  const pannellumViewerRef = useRef<any>(null);
-
-  // Sample virtual tour data
->>>>>>> 359522c46059f1ebeb09eb02788d6c371fe1de9d
   useEffect(() => {
     const sampleTours: VirtualTour[] = [
       {
@@ -72,11 +60,7 @@ const VirtualTours = () => {
           {
             id: "main-courtyard",
             title: "Main Courtyard",
-<<<<<<< HEAD
             imageUrl: "https://cdn.pannellum.org/2.5/pannellum.htm?image=https://i.imgur.com/KgRj2XQ.jpg",
-=======
-            imageUrl: "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1200&h=600",
->>>>>>> 359522c46059f1ebeb09eb02788d6c371fe1de9d
             hotspots: [
               { id: "info-1", pitch: -10, yaw: 0, type: "info", text: "The main courtyard is used for ceremonies and gatherings." },
               { id: "scene-1", pitch: -5, yaw: 90, type: "scene", sceneId: "prayer-hall" },
@@ -85,11 +69,7 @@ const VirtualTours = () => {
           {
             id: "prayer-hall",
             title: "Prayer Hall",
-<<<<<<< HEAD
             imageUrl: "https://cdn.pannellum.org/2.5/pannellum.htm?image=https://i.imgur.com/8M7vqJc.jpg",
-=======
-            imageUrl: "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1200&h=600",
->>>>>>> 359522c46059f1ebeb09eb02788d6c371fe1de9d
             hotspots: [
               { id: "info-2", pitch: -5, yaw: 180, type: "info", text: "The prayer hall features intricate thangka paintings and statues." },
               { id: "scene-2", pitch: -5, yaw: -90, type: "scene", sceneId: "main-courtyard" },
@@ -107,11 +87,7 @@ const VirtualTours = () => {
           {
             id: "entrance",
             title: "Main Entrance",
-<<<<<<< HEAD
             imageUrl: "https://cdn.pannellum.org/2.5/pannellum.htm?image=https://i.imgur.com/KgRj2XQ.jpg",
-=======
-            imageUrl: "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1200&h=600",
->>>>>>> 359522c46059f1ebeb09eb02788d6c371fe1de9d
             hotspots: [
               { id: "info-3", pitch: -10, yaw: 0, type: "info", text: "The entrance is adorned with traditional Buddhist motifs." },
               { id: "scene-3", pitch: -5, yaw: 90, type: "scene", sceneId: "main-temple" },
@@ -120,57 +96,43 @@ const VirtualTours = () => {
           {
             id: "main-temple",
             title: "Main Temple",
-<<<<<<< HEAD
             imageUrl: "https://cdn.pannellum.org/2.5/pannellum.htm?image=https://i.imgur.com/8M7vqJc.jpg",
-=======
-            imageUrl: "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1200&h=600",
->>>>>>> 359522c46059f1ebeb09eb02788d6c371fe1de9d
             hotspots: [
               { id: "info-4", pitch: -5, yaw: 180, type: "info", text: "The main temple houses a seven-tiered painted wooden structure." },
               { id: "scene-4", pitch: -5, yaw: -90, type: "scene", sceneId: "entrance" },
             ]
           }
         ]
-<<<<<<< HEAD
-=======
-      },
-      {
-        id: "tashiding",
-        title: "Tashiding Monastery",
-        description: "Visit one of Sikkim's most sacred monasteries perched on a hilltop between two rivers.",
-        location: "Tashiding, Sikkim",
-        tradition: "Nyingma",
-        scenes: [
-          {
-            id: "hilltop-view",
-            title: "Hilltop View",
-            imageUrl: "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1200&h=600",
-            hotspots: [
-              { id: "info-5", pitch: -10, yaw: 0, type: "info", text: "The monastery offers panoramic views of the Himalayan ranges." },
-              { id: "scene-5", pitch: -5, yaw: 90, type: "scene", sceneId: "sacred-chorten" },
-            ]
-          },
-          {
-            id: "sacred-chorten",
-            title: "Sacred Chorten",
-            imageUrl: "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1200&h=600",
-            hotspots: [
-              { id: "info-6", pitch: -5, yaw: 180, type: "info", text: "This sacred chorten is believed to have wish-fulfilling powers." },
-              { id: "scene-6", pitch: -5, yaw: -90, type: "scene", sceneId: "hilltop-view" },
-            ]
-          }
-        ]
->>>>>>> 359522c46059f1ebeb09eb02788d6c371fe1de9d
       }
     ];
 
     setTours(sampleTours);
+    // Default to first tour; may be overridden by query param
     setSelectedTour(sampleTours[0]);
     setCurrentScene(sampleTours[0].scenes[0]);
     setIsLoading(false);
   }, []);
 
-<<<<<<< HEAD
+  // Read query param to select a tour (e.g., ?tour=rumtek or ?tour=rumtek-monastery)
+  const location = useLocation();
+  useEffect(() => {
+    if (!tours || tours.length === 0) return;
+    const params = new URLSearchParams(location.search);
+    const tourParam = params.get('tour');
+    if (!tourParam) return;
+
+    const findBySlug = (t: VirtualTour) => {
+      const slug = t.id || t.title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+      return slug === tourParam || t.id === tourParam;
+    };
+
+    const matched = tours.find(findBySlug) || tours.find(t => findBySlug(t));
+    if (matched) {
+      setSelectedTour(matched);
+      setCurrentScene(matched.scenes[0]);
+    }
+  }, [location.search, tours]);
+
   // Initialize Three.js when component mounts or scene changes
   useEffect(() => {
     if (!containerRef.current || !currentScene) return;
@@ -336,58 +298,11 @@ const VirtualTours = () => {
     hotspotsRef.current = [];
   };
 
-=======
-  // Load Pannellum dynamically to avoid SSR issues
-  useEffect(() => {
-    if (viewerRef.current && currentScene && !pannellumViewerRef.current) {
-      import('pannellum/src/js/libpannellum').then((pannellum) => {
-        pannellumViewerRef.current = pannellum.viewer(viewerRef.current, {
-          type: 'equirectangular',
-          panorama: currentScene.imageUrl,
-          autoLoad: true,
-          showZoomCtrl: false,
-          showFullscreenCtrl: false,
-          hotspotDebug: false,
-        });
-
-        // Add hotspots
-        currentScene.hotspots.forEach(hotspot => {
-          pannellumViewerRef.current.addHotSpot({
-            pitch: hotspot.pitch,
-            yaw: hotspot.yaw,
-            type: hotspot.type,
-            text: hotspot.text,
-            sceneId: hotspot.sceneId,
-            cssClass: `pnlm-hotspot pnlm-${hotspot.type}-hotspot`,
-            clickHandlerFunc: () => handleHotspotClick(hotspot)
-          });
-        });
-      });
-    }
-
-    return () => {
-      if (pannellumViewerRef.current) {
-        pannellumViewerRef.current.destroy();
-        pannellumViewerRef.current = null;
-      }
-    };
-  }, [currentScene]);
-
->>>>>>> 359522c46059f1ebeb09eb02788d6c371fe1de9d
   const handleTourChange = (tourId: string) => {
     const tour = tours.find(t => t.id === tourId);
     if (tour) {
       setSelectedTour(tour);
       setCurrentScene(tour.scenes[0]);
-<<<<<<< HEAD
-=======
-      
-      // Reset viewer
-      if (pannellumViewerRef.current) {
-        pannellumViewerRef.current.destroy();
-        pannellumViewerRef.current = null;
-      }
->>>>>>> 359522c46059f1ebeb09eb02788d6c371fe1de9d
     }
   };
 
@@ -410,13 +325,8 @@ const VirtualTours = () => {
   };
 
   const toggleFullscreen = () => {
-<<<<<<< HEAD
     if (!document.fullscreenElement && containerRef.current) {
       containerRef.current.requestFullscreen().catch(err => {
-=======
-    if (!document.fullscreenElement) {
-      viewerRef.current?.requestFullscreen().catch(err => {
->>>>>>> 359522c46059f1ebeb09eb02788d6c371fe1de9d
         console.error(`Error attempting to enable fullscreen: ${err.message}`);
       });
       setIsFullscreen(true);
@@ -428,29 +338,8 @@ const VirtualTours = () => {
     }
   };
 
-<<<<<<< HEAD
   const togglePlayPause = () => {
     setIsPlaying(!isPlaying);
-=======
-  const handleZoomIn = () => {
-    if (pannellumViewerRef.current) {
-      pannellumViewerRef.current.setHfov(pannellumViewerRef.current.getHfov() - 10);
-    }
-  };
-
-  const handleZoomOut = () => {
-    if (pannellumViewerRef.current) {
-      pannellumViewerRef.current.setHfov(pannellumViewerRef.current.getHfov() + 10);
-    }
-  };
-
-  const handleResetView = () => {
-    if (pannellumViewerRef.current) {
-      pannellumViewerRef.current.setPitch(0);
-      pannellumViewerRef.current.setYaw(0);
-      pannellumViewerRef.current.setHfov(100);
-    }
->>>>>>> 359522c46059f1ebeb09eb02788d6c371fe1de9d
   };
 
   if (isLoading) {
@@ -572,7 +461,6 @@ const VirtualTours = () => {
                 </div>
               </CardHeader>
               <CardContent className="p-0 relative">
-<<<<<<< HEAD
                 <div ref={containerRef} className="relative h-96 md:h-[500px] w-full">
                   {isLoading && (
                     <div className="absolute inset-0 flex items-center justify-center bg-slate-100">
@@ -582,10 +470,6 @@ const VirtualTours = () => {
                       </div>
                     </div>
                   )}
-=======
-                <div ref={viewerRef} className="relative h-96 md:h-[500px] w-full">
-                  {/* Pannellum will be initialized here */}
->>>>>>> 359522c46059f1ebeb09eb02788d6c371fe1de9d
                 </div>
                 
                 {/* Custom Controls */}
@@ -594,35 +478,17 @@ const VirtualTours = () => {
                     variant="ghost" 
                     size="icon" 
                     className="text-white hover:bg-white/20"
-<<<<<<< HEAD
                     onClick={togglePlayPause}
                   >
                     {isPlaying ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
-=======
-                    onClick={handleZoomIn}
-                  >
-                    <ZoomIn className="h-4 w-4" />
->>>>>>> 359522c46059f1ebeb09eb02788d6c371fe1de9d
                   </Button>
                   <Button 
                     variant="ghost" 
                     size="icon" 
                     className="text-white hover:bg-white/20"
-<<<<<<< HEAD
                     onClick={() => {
                       // Reset view logic would go here
                     }}
-=======
-                    onClick={handleZoomOut}
-                  >
-                    <ZoomOut className="h-4 w-4" />
-                  </Button>
-                  <Button 
-                    variant="ghost" 
-                    size="icon" 
-                    className="text-white hover:bg-white/20"
-                    onClick={handleResetView}
->>>>>>> 359522c46059f1ebeb09eb02788d6c371fe1de9d
                   >
                     <RotateCcw className="h-4 w-4" />
                   </Button>
@@ -689,18 +555,4 @@ const VirtualTours = () => {
   );
 };
 
-<<<<<<< HEAD
 export default VirtualTours;
-=======
-export default VirtualTours;
-
-/*
-For production use, replace the sample image URLs with actual 360° panorama images
-
-You may need to adjust the hotspot positions (pitch and yaw values) based on your specific images
-
-Consider adding loading states for better user experience when images are loading
-
-For better performance with many tours, consider implementing lazy loading of images
-*/
->>>>>>> 359522c46059f1ebeb09eb02788d6c371fe1de9d
